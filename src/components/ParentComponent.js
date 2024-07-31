@@ -1,7 +1,8 @@
-import React, { useState } from "react";
-import LoginForm from "./LoginForm";
+// src/ParentComponent.js
+import React, { useState } from 'react';
+import LoginForm from './LoginForm';
 
-function ParentComponent() {
+const ParentComponent = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const handleLogin = () => {
@@ -11,9 +12,13 @@ function ParentComponent() {
   return (
     <div>
       <h1>Parent Component</h1>
-      <LoginForm onLogin={handleLogin} />
+      {isLoggedIn ? (
+        <p>You are logged in!</p>
+      ) : (
+        <LoginForm onLogin={handleLogin} />
+      )}
     </div>
   );
-}
+};
 
 export default ParentComponent;
